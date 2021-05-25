@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplayer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header id="h-multi">
+        <a href="./index.html" id="button-return" style="width: 60px; height: 60px;" title="Voltar a página inicial">
+            <img src="./img/seta-esquerda-removebg-preview.png" alt="Voltar a página inicial" style="width: 60px; height: 60px;">
+        </a>
+
+        <a href="#" id="change-name-button">
+            <input type="text" value="Mudar Nomes" readonly onclick="Modal.openNameSelection()" title="Mudar nome dos Jogadores">
+        </a>
+    </header>
+
+    <main>
+        <div id="principal-area">
+            <div id="score">
+                <div class="score-camp">
+                    <input id="name1" class="score-name" type="text" maxlength="10" placeholder="Jogador 1" value="Jogador 1" readonly title="Jogador 1">
+                    <br>
+                    <input id="points1" class="score-point" type="text" value="0" readonly title="Pontuação do Jogador 1">
+                </div>
+    
+                <div class="score-camp">
+                    <input id="draw" class="score-name" type="text" value="Empate" maxlength="10" readonly title="Empate">
+                    <br>
+                    <input id="points3" class="score-point" type="text" value="0" readonly title="Pontuação de Empate">
+                </div>
+    
+                <div class="score-camp">
+                    <input id="name2" class="score-name" type="text" maxlength="10" placeholder="Jogador 2" value="Jogador 2" readonly title="Jogador 2">
+                    <br>
+                    <input id="points2" class="score-point" type="text" value="0" readonly title="Pontuação do Jogador 2">
+                </div>
+            </div>
+            
+            <div id="table">
+                <div id="table-content">
+                    <div class="space">
+                        <input id="space1" type="text" readonly onclick="Table.space1()">
+                    </div>
+        
+                    <div class="space">
+                        <input id="space2" type="text" readonly onclick="Table.space2()">
+                    </div>
+        
+                    <div class="space">
+                        <input id="space3" type="text" readonly onclick="Table.space3()">
+                    </div>
+                    
+                    <div class="space">
+                        <input id="space4" type="text" readonly onclick="Table.space4()">
+                    </div>
+                    
+                    <div class="space">
+                        <input id="space5" type="text" readonly onclick="Table.space5()">
+                    </div>
+                    
+                    <div class="space">
+                        <input id="space6" type="text" readonly onclick="Table.space6()">
+                    </div>
+                    
+                    <div class="space">
+                        <input id="space7" type="text" readonly onclick="Table.space7()">
+                    </div>
+                    
+                    <div class="space">
+                        <input id="space8" type="text" readonly onclick="Table.space8()">
+                    </div>
+                    
+                    <div class="space">
+                        <input id="space9" type="text" readonly onclick="Table.space9()">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <div class="modal active" id="modal-name-selection">
+        <div class="modal-content">
+            <p><small>(máx: 9 caracteres)</small></p>
+            <input id="player1-name" class="name-input" type="text" maxlength="9" placeholder="Jogador 1" title="Nome do Jogador 1" required>
+            <br>
+            <input id="player2-name" class="name-input" type="text" maxlength="9" placeholder="Jogador 2" title="Nome do Jogador 2" required>
+            <br>
+            <a href="#" id="enter-names-button" onclick="Modal.closeNameSelection()">Enviar</a>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-selection">
+        <div class="modal-content">
+            <p>Jogador 1, qual você escolhe ?</p>
+        
+            <div id="select-area">
+                <div class="space-select">
+                    <input id="spaceX" type="text" value="X" title="X" readonly onclick="Modal.closeSelectionX()">
+                </div>
+    
+                <div class="space-select">
+                    <input id="spaceO" type="text" value="O" title="O" readonly onclick="Modal.closeSelectionO()">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal-win">
+        <div class="modal-content">
+            <br>
+            <p id="text-change">
+                O(A) vencedor(a) é o(a) <em></em>!!<br>Agora é a vez do(a) <em></em>
+            </p>
+            <a id="close-button" title="Fechar" href="#" onclick="Modal.close()">Fechar</a>
+        </div>
+    </div>
+
+    <script src="./script.js" type="text/JavaScript"></script>
+</body>
+</html>
