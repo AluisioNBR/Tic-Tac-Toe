@@ -1,6 +1,5 @@
-let count= 0, value, player1, player2, player1Name, player2Name, scorePlayer1= 0, scorePlayer2= 0, scoreDraw= 0, gameCamp= [["","",""],["","",""],["","",""]], chatMessageCounter= 2, chatScreen= document.querySelector("#chat-screen")
+let count= 0, value, player1, player2, player1Name, player2Name, scorePlayer1= 0, scorePlayer2= 0, scoreDraw= 0, gameCamp= [["","",""],["","",""],["","",""]]
 let space1= document.querySelector("#space1"), space2= document.querySelector("#space2"), space3= document.querySelector("#space3"), space4= document.querySelector("#space4"), space5= document.querySelector("#space5"), space6= document.querySelector("#space6"), space7= document.querySelector("#space7"), space8= document.querySelector("#space8"), space9= document.querySelector("#space9")
-let openButton= document.querySelector(".chat-buttons#open-button"), chatFull= document.querySelector("#chat")
 
 const Modal= {
     open(){
@@ -10,17 +9,6 @@ const Modal= {
     close(){
         document.querySelector("div#modal-win").classList.remove("active")
         Table.spaceClean()
-    },
-
-    closeNameSelectionSingleplayer(){
-        let name1= document.querySelector("input#player1-name"), nameScore1= document.querySelector("input#name1.score-name"), points1= document.querySelector("input#points1"), points2= document.querySelector("input#points2"), pointsDraw= document.querySelector("input#points3")
-        
-        player1Name= name1.value; player2Name= "Harry"
-        nameScore1.value= name1.value; name1.value= ""
-        points1.value= 0; points2.value= 0; pointsDraw.value= 0
-
-        document.querySelector("div#modal-name-selection").classList.remove("active")
-        Modal.openSelectionArea()
     },
 
     openSelectionArea(){
@@ -237,69 +225,5 @@ const Table= {
             }
         }
         Table.victory()
-    }
-}
-
-const Chat= {
-    chatOpen(){
-        openButton.classList.remove("active")
-        chatFull.classList.add("active")
-    },
-    chatClose(){
-        openButton.classList.add("active")
-        chatFull.classList.remove("active")
-    },
-    message(message, messageText){
-        let chatScreen= document.querySelector("div#chat-screen"), messageFinal= document.createTextNode(messageText)
-
-        message.appendChild(messageFinal)
-        chatScreen.appendChild(message)
-        message.classList.add("message")
-
-        return message
-    },
-
-    enterMessage(){
-        let message= document.createElement("div"), messageTextImplement= document.querySelector("input#message-camp").value, messageText= `${player1Name}: ${messageTextImplement}`
-        
-        Chat.message(message, messageText)
-        message.classList.add("player")
-
-        document.querySelector("input#message-camp").value= ""
-        Chat.screenAjust()
-        Chat.harryMessage(messageTextImplement)
-    },
-
-    harryMessage(playerMessage){
-        let message= document.createElement("div"), messageTextImplement= ""
-        String(playerMessage)
-        playerMessage.prototype.toUpperCase()
-
-        if(playerMessage.includes("OLÁ") || playerMessage.includes("OLA") || playerMessage.includes("OI")){
-            messageTextImplement= `Olá ${player1Name}!`
-        } else if("TUDO BEM" in playerMessage){
-            messageTextImplement= `Estou muito bem! E você ${player1} ?`
-        } else if("ESTOU BEM" in playerMessage){
-            messageTextImplement= `Que bom, fico feliz em saber!`
-        }
-
-        let messageText= `${player1Name}: ${messageTextImplement}`
-        Chat.message(message, messageText)
-        message.classList.add("harry")
-
-        Chat.screenAjust()
-    },
-
-    screenAjust(){
-        if(chatMessageCounter < 10){
-            let screenA= chatMessageCounter-1
-
-            chatScreen.classList.remove(`screen${screenA}`)
-            chatScreen.classList.add(`screen${chatMessageCounter}`)
-
-            chatMessageCounter++
-        } else{
-            chatScreen.firstElementChild.remove()
-        }
     }
 }
