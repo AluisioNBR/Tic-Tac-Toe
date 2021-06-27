@@ -87,8 +87,10 @@ const Table= {
         const colum1= gameCamp[0][0] == value && gameCamp[1][0] == value && gameCamp[2][0] == value, colum2= gameCamp[0][1] == value && gameCamp[1][1] == value && gameCamp[2][1] == value, colum3= gameCamp[0][2] == value && gameCamp[1][2] == value && gameCamp[2][2] == value
         const sideRow1= gameCamp[0][0] == value && gameCamp[1][1] == value && gameCamp[2][2] == value, sideRow2= gameCamp[0][2] == value && gameCamp[1][1] == value && gameCamp[2][0] == value, victoryCondition = row1 || row2 || row3 || colum1 || colum2 || colum3 || sideRow1 || sideRow2
         const drawCondition= gameCamp[0][0] != "" && gameCamp[0][1] != "" && gameCamp[0][2] != "" && gameCamp[1][0] != "" && gameCamp[1][1] != "" && gameCamp[1][2] != "" && gameCamp[2][0] != "" && gameCamp[2][1] != "" && gameCamp[2][2] != ""
+        let victory= false
 
         if(victoryCondition){
+            victory= true
             Table.victoryPlayer()
             Modal.open()
         } else if(drawCondition){
@@ -98,6 +100,8 @@ const Table= {
             document.querySelector("p#text-change").innerHTML= "Empate!!"
             Modal.open()
         }
+
+        return victory
     },
 
     space1(){
@@ -105,102 +109,107 @@ const Table= {
         gameCamp[0][0]= player1
         space1.classList.add("player1Red")
         usedSpaces.push(1)
-        Table.victory()
-        Harry.action()
-        value= player1
+        let victory= Table.victory()
+        if (!victory){
+            Harry.action()
+        }
     },
     space2(){
         space2.value= value
         gameCamp[0][1]= value
         space2.classList.add("player1Red")
         usedSpaces.push(2)
-        Table.victory()
-        Harry.action()
-        value= player1
+        let victory= Table.victory()
+        if (!victory){
+            Harry.action()
+        }
     },
     space3(){
         space3.value= value
         gameCamp[0][2]= value
         space3.classList.add("player1Red")
         usedSpaces.push(3)
-        Table.victory()
-        Harry.action()
-        value= player1
+        let victory= Table.victory()
+        if (!victory){
+            Harry.action()
+        }
     },
     space4(){
         space4.value= value
         gameCamp[1][0]= value
         space4.classList.add("player1Red")
         usedSpaces.push(4)
-        Table.victory()
-         Harry.action()
-        value= player1
+        let victory= Table.victory()
+        if (!victory){
+            Harry.action()
+        }
     },
     space5(){
         space5.value= value
         gameCamp[1][1]= value
         space5.classList.add("player1Red")
         usedSpaces.push(5)
-        Table.victory()
-        Harry.action()
-        value= player1
+        let victory= Table.victory()
+        if (!victory){
+            Harry.action()
+        }
     },
     space6(){
         space6.value= value
         gameCamp[1][2]= value
         space6.classList.add("player1Red")
         usedSpaces.push(6)
-        Table.victory()
-        Harry.action()
-        value= player1
+        let victory= Table.victory()
+        if (!victory){
+            Harry.action()
+        }
     },
     space7(){
         space7.value= value
         gameCamp[2][0]= value
         space7.classList.add("player1Red")
         usedSpaces.push(7)
-        Table.victory()
-        Harry.action()
-        value= player1
+        let victory= Table.victory()
+        if (!victory){
+            Harry.action()
+        }
     },
     space8(){
         space8.value= value
         gameCamp[2][1]= value
         space8.classList.add("player1Red")
         usedSpaces.push(8)
-        Table.victory()
-        Harry.action()
-        value= player1
+        let victory= Table.victory()
+        if (!victory){
+            Harry.action()
+        }
     },
     space9(){
         space9.value= value
         gameCamp[2][2]= value
         space9.classList.add("player1Red")
         usedSpaces.push(9)
-        Table.victory()
-        Harry.action()
-        value= player1
+        let victory= Table.victory()
+        if (!victory){
+            Harry.action()
+        }
     }
 }
 
 const Harry= {
-    play(){
-           
-        },
-        
         campSelection(){
             value= player2
             let space= Math.floor(Math.random()*10)
             if(space == 0){space++}
-            alert(space)
             for(let x of usedSpaces){ 
                 if(space == x){
-                    used= True
+                    used= true
+                    break
                 }
             }
             
             if(used){
-                Harry.CampSelection()
+                Harry.campSelection()
             } else{
                 if(space == 1){
 	              space1.value= player2
@@ -242,11 +251,12 @@ const Harry= {
             
                 usedSpaces.push(space)
             }
+
+            value= player1
         },
         
         action(){
             Harry.campSelection()
-            Harry.play()
             Table.victory()
         }
 }
