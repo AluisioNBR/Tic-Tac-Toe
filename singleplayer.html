@@ -5,14 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Singleplayer</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/singleplayer.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header id="h-multi">
-        <a href="./index.html" id="button-return" style="width: 60px; height: 60px;" title="Voltar a página inicial">
-            <img src="./img/left-arrow.png" alt="Voltar a página inicial" style="width: 60px; height: 60px;">
+        <a href="./index.html" id="button-return" title="Voltar a página inicial">
+            <img src="./img/left-arrow.png" alt="Voltar a página inicial">
         </a>
 
         <a href="#" id="change-name-button">
@@ -45,40 +46,48 @@
 
             <div class="single" id="table">
                 <div class="single" id="table-content">
-                    <div class="space">
-                        <input id="space1" type="text" readonly onclick="Table.space1()">
-                    </div>
-        
-                    <div class="space">
-                        <input id="space2" type="text" readonly onclick="Table.space2()">
-                    </div>
-        
-                    <div class="space">
-                        <input id="space3" type="text" readonly onclick="Table.space3()">
-                    </div>
-                    
-                    <div class="space">
-                        <input id="space4" type="text" readonly onclick="Table.space4()">
+                    <div class="column">
+                        <div class="space">
+                            <input id="space1" type="text" readonly onclick="Table.space1()">
+                        </div>
+            
+                        <div class="space">
+                            <input id="space2" type="text" readonly onclick="Table.space2()">
+                        </div>
+            
+                        <div class="space">
+                            <input id="space3" type="text" readonly onclick="Table.space3()">
+                        </div>
                     </div>
                     
-                    <div class="space">
-                        <input id="space5" type="text" readonly onclick="Table.space5()">
+                    <div class="column">
+                        <div class="space">
+                            <div class="space">
+                                <input id="space4" type="text" readonly onclick="Table.space4()">
+                            </div>
+                            
+                            <div class="space">
+                                <input id="space5" type="text" readonly onclick="Table.space5()">
+                            </div>
+
+                            <div class="space">
+                                <input id="space6" type="text" readonly onclick="Table.space6()">
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="space">
-                        <input id="space6" type="text" readonly onclick="Table.space6()">
-                    </div>
-                    
-                    <div class="space">
-                        <input id="space7" type="text" readonly onclick="Table.space7()">
-                    </div>
-                    
-                    <div class="space">
-                        <input id="space8" type="text" readonly onclick="Table.space8()">
-                    </div>
-                    
-                    <div class="space">
-                        <input id="space9" type="text" readonly onclick="Table.space9()">
+                    <div class="column">
+                        <div class="space">
+                            <input id="space7" type="text" readonly onclick="Table.space7()">
+                        </div>
+                        
+                        <div class="space">
+                            <input id="space8" type="text" readonly onclick="Table.space8()">
+                        </div>
+                        
+                        <div class="space">
+                            <input id="space9" type="text" readonly onclick="Table.space9()">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -103,11 +112,14 @@
 
     <div class="modal active" id="modal-name-selection">
         <div class="modal-content">
-            <br>
-            <p><small>(máx: 9 caracteres)</small></p>
-            <input id="player1-name" class="name-input" type="text" maxlength="9" placeholder="Jogador" title="Nome do Jogador" required>
-            <br>
-            <a href="#" id="enter-names-button" onclick="Modal.closeNameSelectionSingleplayer()">Enviar</a>
+            <div class="content">
+                <p><small>(máx: 9 caracteres)</small></p>
+                <input id="player1-name" class="name-input" type="text" maxlength="9" placeholder="Jogador" title="Nome do Jogador" required>
+                <br>
+                <p>
+                    <a href="#" id="enter-names-button" onclick="Modal.closeNameSelectionSingleplayer()">Enviar</a>
+                </p>
+            </div>
         </div>
     </div>
 
