@@ -1,4 +1,4 @@
-let count= 0, value, player1, player2, player1Name, player2Name, scorePlayer1= 0, scorePlayer2= 0, scoreDraw= 0, gameCamp= [["","",""],["","",""],["","",""]]
+let count = 0, value, player1, player2, player1Name, player2Name, scorePlayer1= 0, scorePlayer2= 0, scoreDraw= 0, gameCamp= [["","",""],["","",""],["","",""]]
 let space1= document.querySelector("#space1"), space2= document.querySelector("#space2"), space3= document.querySelector("#space3"), space4= document.querySelector("#space4"), space5= document.querySelector("#space5"), space6= document.querySelector("#space6"), space7= document.querySelector("#space7"), space8= document.querySelector("#space8"), space9= document.querySelector("#space9")
 
 const Modal= {
